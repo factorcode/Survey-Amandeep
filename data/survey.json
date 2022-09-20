@@ -1,0 +1,136 @@
+{
+  "survey1": {
+    "name": "survey1",
+    "label": "First survey",
+    "initial_question": "survey1_q1",
+    "questions": {
+      "survey1_q1": {
+        "question_text": "I worry all the time about whether the pain will end.",
+        "answer_type": "int",
+        "answer_min": 0,
+        "answer_max": 5,
+        "next_question": {
+          "default": "survey1_q2"
+        }
+      },
+      "survey1_q2": {
+        "question_text": "I feel I can't go on",
+        "answer_type": "int",
+        "answer_min": 0,
+        "answer_max": 5,
+        "next_question": {
+          "default": "survey1_q3"
+        }
+      },
+      "survey1_q3": {
+        "question_text": "It's terrible and I think it's never going to get any better",
+        "answer_type": "int",
+        "answer_min": 0,
+        "answer_max": 5,
+        "next_question": {
+          "default": "survey1_q4"
+        }
+      },
+      "survey1_q4": {
+        "question_text": "It's awful and I feel that it overwhelms me",
+        "answer_type": "int",
+        "answer_min": 0,
+        "answer_max": 5,
+        "next_question": {
+          "default": "survey1_q5"
+        }
+      },
+      "survey1_q5": {
+        "question_text": "I feel I can't stand it anymore",
+        "answer_type": "int",
+        "answer_min": 0,
+        "answer_max": 5,
+        "next_question": {
+          "default": null
+        }
+      }
+    }
+  },
+  "survey2": {
+    "name": "survey2",
+    "label": "Second survey",
+    "initial_question": "survey2_q1",
+    "questions": {
+      "survey2_q1": {
+        "question_text": "Do you currently have a job or do any unpaid work?",
+        "answer_type": "bool",
+        "next_question": {
+          "default": "survey2_q2",
+          "custom": [
+            {
+              "answer": true,
+              "next": "survey2_q2"
+            },
+            {
+              "answer": false,
+              "next": "survey2_q3"
+            }
+          ]
+        }
+      },
+      "survey2_q2": {
+        "question_text": "During the last 7 days, on how many days did you do vigorous physical activities like heavy lifting, digging, heavy construction, or climbing up stairs as part of your work?",
+        "answer_type": "int",
+        "answer_unit": "days",
+        "answer_min": 0,
+        "answer_max": 7,
+        "next_question": {
+          "default": "survey2_q3",
+          "custom": [
+            {
+              "answer": [
+                0,
+                0
+              ],
+              "next": "survey2_q4"
+            }
+          ]
+        }
+      },
+      "survey2_q3": {
+        "question_text": "How much time did you usually spend on one of those days doing vigorous physical activities as part of your work?",
+        "answer_type": "int",
+        "answer_unit": "minutes",
+        "answer_min": 0,
+        "answer_max": 1440,
+        "next_question": {
+          "default": "survey2_q4"
+        }
+      },
+      "survey2_q4": {
+        "question_text": "During the last 7 days, on how many days did you do moderate physical activities like carrying light loads as part of your work? Please do not include walking.",
+        "answer_type": "int",
+        "answer_unit": "days",
+        "answer_min": 0,
+        "answer_max": 7,
+        "next_question": {
+          "default": "survey2_q5",
+          "custom": [
+            {
+              "answer": [
+                0,
+                2
+              ],
+              "next": null
+            }
+          ]
+        }
+      },
+      "survey2_q5": {
+        "question_text": "How much time did you usually spend on one of those days doing moderate physical activities as part of your work?",
+        "answer_type": "int",
+        "answer_unit": "minutes",
+        "answer_min": 0,
+        "answer_max": 1440,
+        "next_question": {
+          "default": null
+        }
+      }
+    }
+  }
+}
