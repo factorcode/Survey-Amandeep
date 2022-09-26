@@ -14,22 +14,24 @@ export default function QuestionContainer({ surveyques, userAnswer, savedAnswer 
 
 
   useEffect(() => {
-    if (surveyques != null)
+    if (surveyques != null){
+      //console.log("Question Container-->>",surveyques);
       SetAnswerType(surveyques.answer_type);
+      }
   }, [surveyques])
 
-  useEffect(() => {
-    if (answerType != null)
+  // useEffect(() => {
+  //   if (answerType != null)
       
-      console.log("answerType-->>",answerType);
-  }, [answerType])
+  //     console.log("answerType-->>",answerType);
+  // }, [answerType])
 
   return (
-    <View style={[styles.questionsContainer]}>
-      <Text style={[styles.questionsText]}>
+    <View style={styles.questionsContainer}>
+      <Text style={styles.questionsText}>
         {surveyques ? surveyques.question_text : "Loading..."}
       </Text>
-      <View style={[styles.answerType]}>
+      <View style={styles.answerType}>
         {answerType ? answerType == "int" ?
             <Range question={surveyques} userValue={savedAnswer} setUserValue={userAnswer} /> :
           answerType == "bool" ? <Options userValue={savedAnswer} setUserValue={userAnswer}/> :

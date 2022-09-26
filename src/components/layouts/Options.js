@@ -14,7 +14,7 @@ const Options = ({ userValue, setUserValue }) => {
     // Implementing Touchable Opacity would be a better idea with respect to UX
     return (
         <View>
-            <View style={[styles.radioBox]}>
+            <View style={styles.radioBox}>
                 <RadioButton 
                     value={true}
                     status={checked === true ? 'checked' : 'unchecked'}
@@ -22,9 +22,9 @@ const Options = ({ userValue, setUserValue }) => {
                         setChecked(true);
                         handleCheck(true)}}
                 />
-                <Text style={[styles.radioText]}>Yes</Text>
+                <Text style={styles.radioText}>Yes</Text>
             </View>
-            <View style={[styles.radioBox]}>
+            <View style={styles.radioBox}>
                 <RadioButton 
                     value={false}
                     status={checked === false ? 'checked' : 'unchecked'}
@@ -32,7 +32,7 @@ const Options = ({ userValue, setUserValue }) => {
                         setChecked(false);
                         handleCheck(false)}}
                 />
-                <Text style={[styles.radioText]}>No</Text>
+                <Text style={styles.radioText}>No</Text>
             </View>
         </View>
     );

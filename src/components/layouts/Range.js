@@ -12,8 +12,18 @@ const Range = ({ question, userValue, setUserValue }) => {
         setUserValue(value);
     }
     const handleInput = (value) => {
-        setUserValue(value);
+
+        const parsedQty = Number.parseInt(value)
+          if (Number.isNaN(parsedQty)) {
+            Number(answer_min) 
+          } else if (parsedQty > Number(answer_max)) {
+            setUserValue(Number(answer_max))
+          } else {
+            setUserValue(parsedQty);
+          }
+        
     }
+    
     return (
 
         <View style={styles.sliderContainer}>
@@ -22,7 +32,7 @@ const Range = ({ question, userValue, setUserValue }) => {
                     <TextInput
                         style={styles.input}
                         onChangeText={newText => handleInput(newText)}
-                        defaultValue={userValue}
+                        defaultValue={ `${userValue}`}
                         keyboardType="numeric"
                         />
                     <Text style={styles.unit}>{answer_unit}</Text>
@@ -32,7 +42,7 @@ const Range = ({ question, userValue, setUserValue }) => {
                     <Text style={styles.sliderValue}>{userValue}</Text>
                     <Slider
                         style={styles.slider}
-                        value={userValue}
+                        value={ typeof userValue === 'number' ? userValue : Number(userValue)}
                         minimumValue={answer_min}
                         maximumValue={answer_max}
                         minimumTrackTintColor="#FF3D00"
